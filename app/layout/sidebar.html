@@ -1,0 +1,17 @@
+<div data-ng-controller="SidebarController as vm">
+	<md-sidenav
+		class="md-sidenav-left"
+		md-component-id="left"
+		md-is-locked-open="$mdMedia('gt-md')"
+		md-whiteframe="4">
+
+		<md-toolbar class="md-theme-indigo">
+			<h1 class="md-toolbar-tools">Navigation</h1>
+		</md-toolbar>
+		<md-content layout-padding>
+			<md-list-item data-ng-class="{active: vm.routerService.isCurrent(r), subMenu: (r.settings.isSubMenu == true), subMenuOpened: (vm.routes[$index + 1].settings.isSubMenu == true)}" data-ng-repeat="r in vm.routes">
+				<a href="#{{r.originalPath}}" ng-bind="r.title"></a>
+			</md-list-item>
+		</md-content>
+	</md-sidenav>
+</div>
